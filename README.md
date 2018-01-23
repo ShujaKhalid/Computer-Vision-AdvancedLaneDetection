@@ -19,7 +19,7 @@ will be appended with a copy of it every time I successfully detect all chessboa
 imgpoints will be appended with the (x, y) pixel position of each of the corners in the image plane with
 each successful chessboard detection.
 
-##Camera Calibration
+## Camera Calibration
 
 I then used the output objpoints and imgpoints to compute the camera calibration and distortion
 coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test
@@ -27,7 +27,7 @@ image using the cv2.undistort() function and obtained this result:
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this
 one:
 
-##Pipeline (single images)
+## Pipeline (single images)
 
 The code for my perspective transform is includes a function called warper() , which appears in lines 1
 through 8 in the file example.py (output_images/examples/example.py) (or, for example, in the 3rd code
