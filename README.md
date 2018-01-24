@@ -10,6 +10,19 @@ The goals / steps of this project are the following:
 - Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle
 position.
 
+[//]: # (Image References)
+
+[image1]: ./imgs/chessboard_image_1.png "chess1"
+[image2]: ./imgs/chessboard_image_2.png "chess2"
+[image3]: ./imgs/chessboard_image_3.png "chess3"
+[image1]: ./training_data_dist.png "Visualization"
+[image1]: ./training_data_dist.png "Visualization"
+[image1]: ./training_data_dist.png "Visualization"
+[image1]: ./training_data_dist.png "Visualization"
+[image1]: ./training_data_dist.png "Visualization"
+[image1]: ./training_data_dist.png "Visualization"
+
+
 ## Approach
 
 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the
@@ -19,7 +32,7 @@ will be appended with a copy of it every time I successfully detect all chessboa
 imgpoints will be appended with the (x, y) pixel position of each of the corners in the image plane with
 each successful chessboard detection.
 
-![./imgs/chessboard_image_1.png]
+![image1]
 
 ![./imgs/chessboard_image_2.png]
 
