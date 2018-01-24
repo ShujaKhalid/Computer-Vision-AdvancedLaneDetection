@@ -71,7 +71,7 @@ The following image is a stack of the two layers. The R layer mask is denoted in
 This step was followed by creating a perspective transformation to adequately identify the previously detected lines on the road. I verified that my perspective transform was working as expected by drawing the src and dst points onto
 a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![images8]
+![image8]
 
 I then attempted to used a filtered histogram of a set of rows along the image to identify the peak locations which correspond to the existence of a line. A small bounding box is drawn around the identified areas along the length of the lane. Within the boxes, the points that are most likely to represent a lane are used to draw a 2nd order polynomial.
 
