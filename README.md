@@ -15,12 +15,15 @@ position.
 [image1]: ./imgs/chessboard_image_1.png "chess1"
 [image2]: ./imgs/chessboard_image_2.png "chess2"
 [image3]: ./imgs/chessboard_image_3.png "chess3"
-[image1]: ./training_data_dist.png "Visualization"
-[image1]: ./training_data_dist.png "Visualization"
-[image1]: ./training_data_dist.png "Visualization"
-[image1]: ./training_data_dist.png "Visualization"
-[image1]: ./training_data_dist.png "Visualization"
-[image1]: ./training_data_dist.png "Visualization"
+[image4]: ./imgs/distortion_correction.png "Visualization"
+[image5]: ./imgs/r_layer.png "Visualization"
+[image6]: ./imgs/sobel_layer.png "Visualization"
+[image7]: ./imgs/stacked_layer.png "Visualization"
+[image8]: ./imgs/birds_eye_view.png "Visualization"
+[image9]: ./imgs/polylines.png "Visualization"
+[image10]: ./imgs/final_image.png "Visualization"
+[image11]: ./imgs/final_video.gif "Visualization"
+[image12]: ./imgs/final_challenge.gif "Visualization"
 
 
 ## Approach
@@ -34,9 +37,9 @@ each successful chessboard detection.
 
 ![image1]
 
-![./imgs/chessboard_image_2.png]
+![image2]
 
-![./imgs/chessboard_image_3.png]
+![image3]
 
 ## Camera Calibration
 
@@ -44,7 +47,7 @@ I then used the output objpoints and imgpoints to compute the camera calibration
 coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test
 image using the cv2.undistort() function and obtained this result:
 
-[./imgs/distortion_correction]
+[image4]
 
 In the figure above, the calibration matrix is applied to each of the images to remove distortion.
 
@@ -59,30 +62,30 @@ The resulting binary image has been created by stacking a Sobel gradient layer a
 
 The following image is a stack of the two layers. The R layer mask is denoted in blue whereas the Sobel gradient layer is denoted in green.  
 
-[./imgs/r_layer]
+[image5]
 
-[./imgs/sobel_layer]
+[image6]
 
-[./imgs/stacked_layer]
+[image7]
 
 This step was followed by creating a perspective transformation to adequately identify the previously detected lines on the road. I verified that my perspective transform was working as expected by drawing the src and dst points onto
 a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-[./imgs/birds_eye_view]
+[images8]
 
 I then attempted to used a filtered histogram of a set of rows along the image to identify the peak locations which correspond to the existence of a line. A small bounding box is drawn around the identified areas along the length of the lane. Within the boxes, the points that are most likely to represent a lane are used to draw a 2nd order polynomial.
 
-[./imgs/polylines]
+[image9]
 
 Based on the results above, the method does a great job of identifying the lanes. The radius of curvature is then calculated using this information.
 
 The pipeline can now be applied to a video along with the radius of curvature. 
 
-[./imgs/final_image]
+[image10]
 
-[./imgs/final_video]
+[image11]
 
-[./imgs/challenge_video]
+[image12]
 
 ## Lessons Learned
 The entire process discussed above dwarfs the earlier introductory lane detection project. Understanding the contents of the image can help in extracting more information than what is available on the surface. The red layer of the images did a great job of capturing the parts of the lane that were closer to the camera whereas the Sobel gradient layer captured the features of the lanes that were further away from the camera. Once this information is made available, the mind-blowing concept of perception transformation allows us to calculate the radius of curvature of the lanes very effectively by converting the real world coordinates to 2D coordinates. Combining all of these tools at our disposal with simple mathematical tools can allow for accurate and robust lane detection. 
