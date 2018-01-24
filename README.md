@@ -19,11 +19,11 @@ will be appended with a copy of it every time I successfully detect all chessboa
 imgpoints will be appended with the (x, y) pixel position of each of the corners in the image plane with
 each successful chessboard detection.
 
-![./imgs/chessboard_image_1]
+![./imgs/chessboard_image_1.png]
 
-![./imgs/chessboard_image_2]
+![./imgs/chessboard_image_2.png]
 
-![./imgs/chessboard_image_3]
+![./imgs/chessboard_image_3.png]
 
 ## Camera Calibration
 
