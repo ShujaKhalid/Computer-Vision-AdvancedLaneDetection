@@ -19,13 +19,21 @@ will be appended with a copy of it every time I successfully detect all chessboa
 imgpoints will be appended with the (x, y) pixel position of each of the corners in the image plane with
 each successful chessboard detection.
 
+[./imgs/chessboard_image_1]
+
+[./imgs/chessboard_image_2]
+
+[./imgs/chessboard_image_3]
+
 ## Camera Calibration
 
 I then used the output objpoints and imgpoints to compute the camera calibration and distortion
 coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test
 image using the cv2.undistort() function and obtained this result:
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this
-one:
+
+[./imgs/distortion_correction]
+
+In the figure above, the calibration matrix is applied to each of the images to remove distortion.
 
 ## Pipeline (single images)
 
@@ -38,22 +46,30 @@ The resulting binary image has been created by stacking a Sobel gradient layer a
 
 The following image is a stack of the two layers. The R layer mask is denoted in blue whereas the Sobel gradient layer is denoted in green.  
 
-[image]
+[./imgs/r_layer]
+
+[./imgs/sobel_layer]
+
+[./imgs/stacked_layer]
 
 This step was followed by creating a perspective transformation to adequately identify the previously detected lines on the road. I verified that my perspective transform was working as expected by drawing the src and dst points onto
 a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-[image]
+[./imgs/birds_eye_view]
 
 I then attempted to used a filtered histogram of a set of rows along the image to identify the peak locations which correspond to the existence of a line. A small bounding box is drawn around the identified areas along the length of the lane. Within the boxes, the points that are most likely to represent a lane are used to draw a 2nd order polynomial.
 
-[image]
+[./imgs/polylines]
 
 Based on the results above, the method does a great job of identifying the lanes. The radius of curvature is then calculated using this information.
 
 The pipeline can now be applied to a video along with the radius of curvature. 
 
-Pipeline (video)
+[./imgs/final_image]
+
+[./imgs/final_video]
+
+[./imgs/challenge_video]
 
 ## Lessons Learned
 The entire process discussed above dwarfs the earlier introductory lane detection project. Understanding the contents of the image can help in extracting more information than what is available on the surface. The red layer of the images did a great job of capturing the parts of the lane that were closer to the camera whereas the Sobel gradient layer captured the features of the lanes that were further away from the camera. Once this information is made available, the mind-blowing concept of perception transformation allows us to calculate the radius of curvature of the lanes very effectively by converting the real world coordinates to 2D coordinates. Combining all of these tools at our disposal with simple mathematical tools can allow for accurate and robust lane detection. 
