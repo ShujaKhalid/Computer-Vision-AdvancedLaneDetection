@@ -47,7 +47,7 @@ I then used the output objpoints and imgpoints to compute the camera calibration
 coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test
 image using the cv2.undistort() function and obtained this result:
 
-[image4]
+![image4]
 
 In the figure above, the calibration matrix is applied to each of the images to remove distortion.
 
@@ -62,30 +62,30 @@ The resulting binary image has been created by stacking a Sobel gradient layer a
 
 The following image is a stack of the two layers. The R layer mask is denoted in blue whereas the Sobel gradient layer is denoted in green.  
 
-[image5]
+![image5]
 
-[image6]
+![image6]
 
-[image7]
+![image7]
 
 This step was followed by creating a perspective transformation to adequately identify the previously detected lines on the road. I verified that my perspective transform was working as expected by drawing the src and dst points onto
 a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-[images8]
+![images8]
 
 I then attempted to used a filtered histogram of a set of rows along the image to identify the peak locations which correspond to the existence of a line. A small bounding box is drawn around the identified areas along the length of the lane. Within the boxes, the points that are most likely to represent a lane are used to draw a 2nd order polynomial.
 
-[image9]
+![image9]
 
 Based on the results above, the method does a great job of identifying the lanes. The radius of curvature is then calculated using this information.
 
 The pipeline can now be applied to a video along with the radius of curvature. 
 
-[image10]
+![image10]
 
-[image11]
+![image11]
 
-[image12]
+![image12]
 
 ## Lessons Learned
 The entire process discussed above dwarfs the earlier introductory lane detection project. Understanding the contents of the image can help in extracting more information than what is available on the surface. The red layer of the images did a great job of capturing the parts of the lane that were closer to the camera whereas the Sobel gradient layer captured the features of the lanes that were further away from the camera. Once this information is made available, the mind-blowing concept of perception transformation allows us to calculate the radius of curvature of the lanes very effectively by converting the real world coordinates to 2D coordinates. Combining all of these tools at our disposal with simple mathematical tools can allow for accurate and robust lane detection. 
