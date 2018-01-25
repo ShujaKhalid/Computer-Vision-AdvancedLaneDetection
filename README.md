@@ -22,8 +22,7 @@ position.
 [image8]: ./imgs/birds_eye_view.png "Visualization"
 [image9]: ./imgs/polylines.png "Visualization"
 [image10]: ./imgs/final_image.png "Visualization"
-[image11]: ./imgs/final_video.gif "Visualization"
-[image12]: ./imgs/final_challenge.gif "Visualization"
+[video_final]: ./imgs/final_video.mp4 "Visualization"
 
 
 ## Approach
@@ -77,11 +76,9 @@ Based on the results above, the method does a great job of identifying the lanes
 
 The pipeline can now be applied to a video along with the radius of curvature. 
 
-![image10]
+![image10] 
 
-![image11]
-
-![image12]
+The algorithm has been applied on a video ![video_final]
 
 ## Lessons Learned
 The entire process discussed above dwarfs the earlier introductory lane detection project. Understanding the contents of the image can help in extracting more information than what is available on the surface. The red layer of the images did a great job of capturing the parts of the lane that were closer to the camera whereas the Sobel gradient layer captured the features of the lanes that were further away from the camera. Once this information is made available, the mind-blowing concept of perception transformation allows us to calculate the radius of curvature of the lanes very effectively by converting the real world coordinates to 2D coordinates. Combining all of these tools at our disposal with simple mathematical tools can allow for accurate and robust lane detection. 
