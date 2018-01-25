@@ -22,7 +22,7 @@ position.
 [image8]: ./imgs/birds_eye_view.png "Visualization"
 [image9]: ./imgs/polylines.png "Visualization"
 [image10]: ./imgs/final_image.png "Visualization"
-[video_final]: ./imgs/final_video.mp4 "Visualization"
+[video_final]: ./imgs/test_project_video.mp4 "Visualization"
 
 
 ## Approach
